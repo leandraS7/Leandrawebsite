@@ -19,7 +19,7 @@
     }
 
     /* Sidebar with heart */
-    .sidebar {
+    .scrollbar {
       position: fixed;
       top: 0;
       left: 0;
@@ -34,7 +34,7 @@
       z-index: 100;
     }
 
-    .sidebar .heart {
+    .scrollbar .heart {
       font-size: 30px;
       cursor: pointer;
       color: #FF69B4; /* pink heart */
@@ -107,8 +107,8 @@
 
 <body>
 
-  <!-- Sidebar with heart -->
-  <div class="sidebar">
+  <!-- scrollbar with heart -->
+  <div class="scrollbar">
     <div class="heart">❤️</div>
   </div>
 
@@ -155,7 +155,7 @@
   <img src="https://i.ibb.co/Y2Kp0Pd/pixel-cat.png" id="pixel-cat" alt="Pixel Cat">
 
   <script>
-    // Sidebar heart darkens on scroll
+    // scrollbar heart darkens on scroll
     const heart = document.querySelector('.heart');
     window.addEventListener('scroll', () => {
       const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
