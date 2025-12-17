@@ -1,45 +1,192 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-   <title>Element Background Color</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Leandra's portfolio for MEDP 150 FA 2025">
+  <title>Leandra's Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
   <style>
-    .my-section {
-      background-color: #F9EBFF;
-      padding: 20px;
+    /* Body and background */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #DCD0FF; /* Lilac light purple */
+      font-family: "Times New Roman", serif;
     }
 
-    .highlight-text { light blue
-      background-color: light violet;
+    /* Sidebar with heart */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 100%;
+      background: #E0D0FF;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 20px;
+      transition: background 0.3s;
+      z-index: 100;
+    }
+
+    .sidebar .heart {
+      font-size: 30px;
+      cursor: pointer;
+      color: #FF69B4; /* pink heart */
+      transition: transform 0.2s;
+    }
+
+    /* Top subjects bar */
+    .subjects {
+      display: flex;
+      justify-content: space-around;
+      background: #fff;
+      padding: 10px 0;
+      color: lightblue;
+      font-size: 1.2em;
+      margin-left: 60px; /* offset for sidebar */
+    }
+
+    /* Headings in Lobster */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Lobster', cursive;
+    }
+
+    /* Paragraph styling */
+    i p {
+      margin: 10px 20px;
+      line-height: 1.5;
+    }
+
+    /* Polaroid gallery */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
+      gap: 5in; /* 5 inches space between images */
+      margin-left: 60px; /* offset for sidebar */
+    }
+
+    .polaroid {
+      background: white;
+      padding: 10px 10px 30px 10px;
+      box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+      display: inline-block;
+      position: relative;
+      transition: transform 0.3s;
+    }
+
+    .polaroid img {
+      display: block;
+      width: 200px;
+      height: auto;
+    }
+
+    .polaroid:hover {
+      transform: rotate(-3deg) scale(1.05);
+    }
+
+    /* Pixel cat */
+    #pixel-cat {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      cursor: grab;
+      z-index: 200;
     }
   </style>
 </head>
-  <title>Leandra's Portfolio</title>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Leandra's portfolio for MEDP 150 FA 2025">
-</head>
 
 <body>
-<h1>Leandra's Portfolio</h1>
-<i><p>My name is Leandra Suriel. I’m 21 years old and currently a 24cr studio art major, pursuing a BA in it. I’m a calm person who values peace, quiet, and time with Jesus. I love creating and expressing myself through different forms of art. My main focus is drawing and painting, but I also sculpt, work digitally, and I’m beginning to learn crochet. I was born in the Dominican Republic and lived there until I was 11, before moving to the United States right before turning 12. Since then, I’ve been living in Brooklyn, balancing college life with other work responsibilities outside of class.</p></i>
-<i><p> My goal is to build a career centered around art, since it’s something I truly love and find joy in. Studying art is not just about earning a degree for me, it’s about growing into the artist I hope to become. Every project I work on, whether it’s painting, sculpting, or trying new creative skills, strengthens my passion and reminds me why I chose this path. Art brings me happiness, and I intend to dedicate my future to it.</p></i>
-<img src="me.jpg" width="400px">
 
-<h3>Homework Assignments</h3>
-<ul>
-<li><a href="readings.html">Reading Responses</a></li>
-<li><a href="hw1.html">Homework 1: Web Development</a></li>
-<li><a href="hw2.html">Homework 2:Cropping and Resizing </a></li>
-<li><a href="hw3.html">Homework 3: Depth of Field</a></li>
-<li><a href="hw4.html">Homework 4:Photomage</a></li>
-  <li><a href="hw5.html">Homework 5: SC - Photomage and Design</a></li>
- <li><a href="hw6.html">Homework 6: vector eye</a></li>
-<li><a href="hw7.html">Homework 7:illustrated environment</a></li>
-<li><a href="hw8.html">Homework 8: 2 Animated Gifs </a></li>
-<li><a href="hw9.html">Homework 9: Data visualization </a></li>
-<li><a href="hw10.html">Homework 10: Interactive story</a></li>
-  
-</ul>
+  <!-- Sidebar with heart -->
+  <div class="sidebar">
+    <div class="heart">❤️</div>
+  </div>
 
-  <body>
+  <!-- Top subjects -->
+  <div class="subjects">
+    <div>Home</div>
+    <div>About</div>
+    <div>Gallery</div>
+    <div>Contact</div>
+  </div>
+
+  <!-- Main content -->
+  <h1>Leandra's Portfolio</h1>
+  <i><p>My name is Leandra Suriel. I’m 21 years old and currently a 24cr studio art major, pursuing a BA in it. I’m a calm person who values peace, quiet, and time with Jesus. I love creating and expressing myself through different forms of art. My main focus is drawing and painting, but I also sculpt, work digitally, and I’m beginning to learn crochet. I was born in the Dominican Republic and lived there until I was 11, before moving to the United States right before turning 12. Since then, I’ve been living in Brooklyn, balancing college life with other work responsibilities outside of class.</p></i>
+
+  <i><p>My goal is to build a career centered around art, since it’s something I truly love and find joy in. Studying art is not just about earning a degree for me, it’s about growing into the artist I hope to become. Every project I work on, whether it’s painting, sculpting, or trying new creative skills, strengthens my passion and reminds me why I chose this path. Art brings me happiness, and I intend to dedicate my future to it.</p></i>
+
+  <img src="me.jpg" width="400px" style="margin-left: 60px;">
+
+  <h3>Homework Assignments</h3>
+  <ul style="margin-left: 60px;">
+    <li><a href="readings.html">Reading Responses</a></li>
+    <li><a href="hw1.html">Homework 1: Web Development</a></li>
+    <li><a href="hw2.html">Homework 2: Cropping and Resizing</a></li>
+    <li><a href="hw3.html">Homework 3: Depth of Field</a></li>
+    <li><a href="hw4.html">Homework 4: Photomage</a></li>
+    <li><a href="hw5.html">Homework 5: SC - Photomage and Design</a></li>
+    <li><a href="hw6.html">Homework 6: Vector Eye</a></li>
+    <li><a href="hw7.html">Homework 7: Illustrated Environment</a></li>
+    <li><a href="hw8.html">Homework 8: 2 Animated Gifs</a></li>
+    <li><a href="hw9.html">Homework 9: Data Visualization</a></li>
+    <li><a href="hw10.html">Homework 10: Interactive Story</a></li>
+  </ul>
+
+  <!-- Polaroid gallery -->
+  <div class="gallery">
+    <div class="polaroid"><img src="https://placekitten.com/200/200" alt="Kitten 1"></div>
+    <div class="polaroid"><img src="https://placekitten.com/201/200" alt="Kitten 2"></div>
+    <div class="polaroid"><img src="https://placekitten.com/200/201" alt="Kitten 3"></div>
+    <div class="polaroid"><img src="https://placekitten.com/202/200" alt="Kitten 4"></div>
+  </div>
+
+  <!-- Pixel cat -->
+  <img src="https://i.ibb.co/Y2Kp0Pd/pixel-cat.png" id="pixel-cat" alt="Pixel Cat">
+
+  <script>
+    // Sidebar heart darkens on scroll
+    const heart = document.querySelector('.heart');
+    window.addEventListener('scroll', () => {
+      const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+      const purpleValue = Math.min(255, Math.floor(220 - scrollPercent * 100));
+      document.querySelector('.sidebar').style.background = `rgb(${purpleValue}, ${purpleValue}, 255)`;
+    });
+
+    // Pixel cat drag functionality
+    const cat = document.getElementById('pixel-cat');
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    cat.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = e.clientX - cat.offsetLeft;
+      offsetY = e.clientY - cat.offsetTop;
+      cat.style.cursor = 'grabbing';
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if(isDragging) {
+        cat.style.left = (e.clientX - offsetX) + 'px';
+        cat.style.top = (e.clientY - offsetY) + 'px';
+      }
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+      cat.style.cursor = 'grab';
+    });
+  </script>
+
+</body>
 </html>
