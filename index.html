@@ -11,7 +11,6 @@
 
   <style>
     /* Body and background */
-    /* NOTE: user requested #DCDOFF but hex can't contain "O"; using #DCD0FF (zero) */
     body {
       margin: 0;
       padding: 0;
@@ -43,7 +42,6 @@
     }
 
     /* Firefox */
-    /* first color is thumb, second is track */
     scrollbar-width: thin;
     scrollbar-color: #8c63ff #efe8ff;
 
@@ -189,15 +187,8 @@
       padding-bottom: 26px;
     }
 
-    /* existing gallery (keeps separate gallery of kittens) */
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 20px 20px 40px 60px;
-      gap: 20px;
-      /* offset for sidebar handled by margins */
-    }
+    /* hide the old index gallery */
+    .gallery { display: none; }
 
     /* responsive image in intro */
     .intro-photo {
@@ -238,7 +229,7 @@
   <!-- Main content -->
   <h1>Leandra's Portfolio</h1>
 
-  <p class="intro">My name is Leandra Suriel. I’m 21 years old and currently a 24cr studio art major, pursuing a BA in it. I’m a calm person who values peace, quiet, and time with Jesus. I love creating and [...]</p>
+  <p class="intro">My name is Leandra Suriel. I’m 21 years old and currently a 24cr studio art major, pursuing a BA in it. I’m a calm person who values peace, quiet, and time with Jesus. I love creating and [... ]</p>
 
   <p class="intro">My goal is to build a career centered around art, since it’s something I truly love and find joy in. Studying art is not just about earning a degree for me, it’s about growing into the art[...]</p>
 
@@ -251,72 +242,64 @@
     <button class="dropbtn" id="homework-toggle" aria-expanded="false" aria-controls="homework-panel">Homework ▾</button>
     <div class="dropdown-content" id="homework-panel" role="region" aria-labelledby="homework-toggle">
       <div class="homework-board">
-        <!-- Each polaroid is an anchor linking to the homework page -->
+        <!-- Each polaroid links to the homework page and uses the main image from that homework as a thumbnail -->
         <a class="polaroid" href="readings.html" title="Reading Responses">
-          <img src="https://placekitten.com/300/200" alt="Reading Responses">
+          <img src="me.jpg" alt="Reading Responses">
           <div class="caption">Reading Responses</div>
         </a>
 
         <a class="polaroid" href="hw1.html" title="Homework 1: Web Development">
-          <img src="https://placekitten.com/301/200" alt="Homework 1">
+          <img src="me.jpg" alt="Homework 1">
           <div class="caption">HW1: Web Dev</div>
         </a>
 
         <a class="polaroid" href="hw2.html" title="Homework 2: Cropping and Resizing">
-          <img src="https://placekitten.com/300/201" alt="Homework 2">
+          <img src="Flower.jpg" alt="Homework 2">
           <div class="caption">HW2: Cropping</div>
         </a>
 
         <a class="polaroid" href="hw3.html" title="Homework 3: Depth of Field">
-          <img src="https://placekitten.com/302/200" alt="Homework 3">
+          <img src="Cones.jpg" alt="Homework 3">
           <div class="caption">HW3: DOF</div>
         </a>
 
         <a class="polaroid" href="hw4.html" title="Homework 4: Photomage">
-          <img src="https://placekitten.com/300/202" alt="Homework 4">
+          <img src="cup.jpg" alt="Homework 4">
           <div class="caption">HW4: Photomage</div>
         </a>
 
         <a class="polaroid" href="hw5.html" title="Homework 5: SC - Photomage and Design">
-          <img src="https://placekitten.com/303/200" alt="Homework 5">
+          <img src="Design 5.jpg" alt="Homework 5">
           <div class="caption">HW5: SC</div>
         </a>
 
         <a class="polaroid" href="hw6.html" title="Homework 6: Vector Eye">
-          <img src="https://placekitten.com/300/203" alt="Homework 6">
+          <img src="Eye2.jpg" alt="Homework 6">
           <div class="caption">HW6: Vector Eye</div>
         </a>
 
         <a class="polaroid" href="hw7.html" title="Homework 7: Illustrated Environment">
-          <img src="https://placekitten.com/304/200" alt="Homework 7">
+          <img src="House.jpg" alt="Homework 7">
           <div class="caption">HW7: Illustrated Env</div>
         </a>
 
         <a class="polaroid" href="hw8.html" title="Homework 8: 2 Animated Gifs">
-          <img src="https://placekitten.com/300/204" alt="Homework 8">
+          <img src="Eye2.jpg" alt="Homework 8">
           <div class="caption">HW8: GIFs</div>
         </a>
 
         <a class="polaroid" href="hw9.html" title="Homework 9: Data Visualization">
-          <img src="https://placekitten.com/305/200" alt="Homework 9">
+          <img src="Graph.jpg" alt="Homework 9">
           <div class="caption">HW9: Data Viz</div>
         </a>
 
         <a class="polaroid" href="hw10.html" title="Homework 10: Interactive Story">
-          <img src="https://placekitten.com/300/205" alt="Homework 10">
+          <!-- hw10 doesn't exist in the repo yet; link kept but no thumbnail file available -->
           <div class="caption">HW10: Interactive Story</div>
         </a>
 
       </div>
     </div>
-  </div>
-
-  <!-- Polaroid gallery (keeps existing gallery below the homework) -->
-  <div class="gallery" aria-hidden="false">
-    <div class="polaroid"><img src="https://placekitten.com/200/200" alt="Kitten 1"></div>
-    <div class="polaroid"><img src="https://placekitten.com/201/200" alt="Kitten 2"></div>
-    <div class="polaroid"><img src="https://placekitten.com/200/201" alt="Kitten 3"></div>
-    <div class="polaroid"><img src="https://placekitten.com/202/200" alt="Kitten 4"></div>
   </div>
 
   <script>
