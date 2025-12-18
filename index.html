@@ -69,281 +69,94 @@
       user-select: none;
     }
 
-    /* Top subjects bar */
-    .subjects {
+    /* Top navigation (only Homework dropdown, Readings, Home) */
+    .nav {
       display: flex;
-      justify-content: space-around;
+      gap: 18px;
+      align-items: center;
       background: #fff;
-      padding: 10px 0;
-      color: #6ea9ff;
-      font-size: 1.0em;
-      margin-left: 60px; /* offset for sidebar */
+      padding: 10px 16px;
+      margin-left: 60px;
       position: sticky;
       top: 0;
-      z-index: 80;
+      z-index: 90;
       border-bottom: 1px solid rgba(0,0,0,0.05);
     }
+    .nav a, .nav button { color: #6ea9ff; font-size: 1em; background: none; border: none; cursor: pointer; text-decoration: none; }
+    .nav .home-link { color: #6ea9ff; text-decoration: none; }
 
-    /* Headings in Lobster */
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Lobster', cursive;
-      margin-left: 60px; /* offset for sidebar */
-    }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Lobster', cursive; margin-left: 60px; }
 
-    /* Intro paragraphs styled and fixed margin */
-    .intro {
-      margin: 10px 20px;
-      line-height: 1.5;
-      margin-left: 60px;
-      font-style: italic;
-      max-width: 900px;
-    }
+    .intro { margin: 10px 20px; line-height: 1.5; margin-left: 60px; font-style: italic; max-width: 900px; }
 
     /* Polaroid common style */
-    .polaroid {
-      background: white;
-      padding: 10px 10px 30px 10px;
-      box-shadow: 5px 5px 10px rgba(0,0,0,0.18);
-      display: inline-block;
-      position: relative;
-      transition: transform 0.25s, box-shadow 0.25s;
-      border-radius: 4px;
-      text-align: center;
-      color: #222;
-      text-decoration: none;
-    }
+    .polaroid { background: white; padding: 10px 10px 30px 10px; box-shadow: 5px 5px 10px rgba(0,0,0,0.18); display: inline-block; position: relative; transition: transform 0.25s, box-shadow 0.25s; border-radius: 4px; text-align: center; color: #222; text-decoration: none; }
+    .polaroid img { display: block; width: 100%; height: auto; border-radius: 2px; }
+    .polaroid:hover { transform: rotate(-3deg) scale(1.03); box-shadow: 8px 10px 18px rgba(0,0,0,0.25); }
+    .polaroid .caption { margin-top: 8px; font-size: 0.9em; color: #444; }
 
-    .polaroid img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 2px;
-    }
+    .dropdown { position: relative; }
+    .dropbtn { background: linear-gradient(180deg,#bfa8ff,#8c63ff); color: white; padding: 8px 12px; font-size: 1em; border: none; border-radius: 6px; cursor: pointer; }
+    .dropdown-content { display: none; position: absolute; left: 0; top: 42px; min-width: 320px; padding: 12px; background: linear-gradient(180deg, rgba(255,255,255,0.98), #fff); border-radius: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+    .dropdown.open .dropdown-content { display: block; }
 
-    .polaroid:hover {
-      transform: rotate(-3deg) scale(1.03);
-      box-shadow: 8px 10px 18px rgba(0,0,0,0.25);
-    }
+    .homework-board { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
 
-    .polaroid .caption {
-      margin-top: 8px;
-      font-size: 0.9em;
-      color: #444;
-    }
+    .intro-photo { display: block; max-width: 90%; height: auto; margin-left: 60px; margin-top: 10px; border-radius: 6px; box-shadow: 4px 6px 12px rgba(0,0,0,0.12); }
 
-    /* Homework dropdown container */
-    .dropdown {
-      margin-left: 60px;
-      margin-top: 10px;
-      position: relative;
-      max-width: calc(100% - 80px);
-    }
-
-    .dropbtn {
-      background: linear-gradient(180deg,#bfa8ff,#8c63ff);
-      color: white;
-      padding: 10px 16px;
-      font-size: 1em;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    }
-
-    .dropbtn:focus {
-      outline: 2px solid rgba(140,99,255,0.5);
-    }
-
-    .dropdown-content {
-      display: none;
-      position: relative;
-      margin-top: 12px;
-      background: transparent;
-      padding: 10px;
-      border-radius: 8px;
-      z-index: 70;
-    }
-
-    .dropdown.open .dropdown-content {
-      display: block;
-    }
-
-    /* Homework board (pin-board layout) */
-    .homework-board {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 18px;
-      align-items: start;
-      justify-items: center;
-      padding: 12px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
-      border-radius: 8px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-    }
-
-    /* make each polaroid for homework a fixed width */
-    .homework-board .polaroid {
-      width: 160px;
-      padding-bottom: 26px;
-    }
-
-    /* hide the old index gallery */
-    .gallery { display: none; }
-
-    /* responsive image in intro */
-    .intro-photo {
-      display: block;
-      max-width: 90%;
-      height: auto;
-      margin-left: 60px;
-      margin-top: 10px;
-      border-radius: 6px;
-      box-shadow: 4px 6px 12px rgba(0,0,0,0.12);
-    }
-
-    /* small screens adjustments */
-    @media (max-width: 600px) {
-      body { padding-left: 0; }
-      .scrollbar { display: none; }
-      h1, .subjects, .intro, .dropbtn { margin-left: 12px; }
-      .intro-photo { margin-left: 12px; }
-    }
+    @media (max-width: 600px) { body { padding-left: 0; } .scrollbar { display: none; } h1, .nav, .intro, .dropbtn { margin-left: 12px; } .intro-photo { margin-left: 12px; } }
   </style>
 </head>
-
 <body>
 
-  <!-- scrollbar with heart -->
   <div class="scrollbar">
     <div class="heart" title="Like">❤️</div>
   </div>
 
-  <!-- Top subjects -->
-  <div class="subjects">
-    <div>Home</div>
-    <div>About</div>
-    <div>Gallery</div>
-    <div>Contact</div>
+  <!-- Top navigation with Homework dropdown, Readings link, Home link -->
+  <div class="nav">
+    <div class="dropdown" id="top-homework">
+      <button class="dropbtn" id="top-homework-toggle" aria-expanded="false">Homework ▾</button>
+      <div class="dropdown-content" id="top-homework-panel" role="region" aria-labelledby="top-homework-toggle">
+        <div class="homework-board">
+          <a class="polaroid" href="readings.html"><img src="me.jpg" alt="Readings"><div class="caption">Readings</div></a>
+          <a class="polaroid" href="hw1.html"><img src="me.jpg" alt="HW1"><div class="caption">HW1</div></a>
+          <a class="polaroid" href="hw2.html"><img src="Flower.jpg" alt="HW2"><div class="caption">HW2</div></a>
+          <a class="polaroid" href="hw3.html"><img src="Cones.jpg" alt="HW3"><div class="caption">HW3</div></a>
+          <a class="polaroid" href="hw4.html"><img src="cup.jpg" alt="HW4"><div class="caption">HW4</div></a>
+          <a class="polaroid" href="hw5.html"><img src="Design 5.jpg" alt="HW5"><div class="caption">HW5</div></a>
+          <a class="polaroid" href="hw6.html"><img src="Eye2.jpg" alt="HW6"><div class="caption">HW6</div></a>
+          <a class="polaroid" href="hw7.html"><img src="House.jpg" alt="HW7"><div class="caption">HW7</div></a>
+          <a class="polaroid" href="hw8.html"><img src="Eye2.jpg" alt="HW8"><div class="caption">HW8</div></a>
+          <a class="polaroid" href="hw9.html"><img src="Graph.jpg" alt="HW9"><div class="caption">HW9</div></a>
+          <a class="polaroid" href="hw10.html"><div class="caption">HW10</div></a>
+        </div>
+      </div>
+    </div>
+
+    <a class="home-link" href="readings.html">Readings</a>
+    <a class="home-link" href="index.html">Home</a>
   </div>
 
-  <!-- Main content -->
   <h1>Leandra's Portfolio</h1>
 
-  <p class="intro">My name is Leandra Suriel. I’m 21 years old and currently a 24cr studio art major, pursuing a BA in it. I’m a calm person who values peace, quiet, and time with Jesus. I love creating and expressing myself through different forms of art. My main focus is drawing and painting, but I also sculpt, work digitally, and I’m beginning to learn crochet. I was born in the Dominican Republic and lived there until I was 11, before moving to the United States right before turning 12. Since then, I’ve been living in Brooklyn, balancing college life with other work responsibilities outside of class.</p>
+  <p class="intro">My name is Leandra Suriel. I’m 21 years old and currently a 24cr studio art major, pursuing a BA in it. I’m a calm person who values peace, quiet, and time with Jesus. I love creating and [...]</p>
 
-  <p class="intro">My goal is to build a career centered around art, since it’s something I truly love and find joy in. Studying art is not just about earning a degree for me, it’s about growing into the artist I hope to become. Every project I work on, whether it’s painting, sculpting, or trying new creative skills, strengthens my passion and reminds me why I chose this path. Art brings me happiness, and I intend to dedicate my future to it.</p>
+  <p class="intro">My goal is to build a career centered around art, since it’s something I truly love and find joy in. Studying art is not just about earning a degree for me, it’s about growing into the art[...]</p>
 
   <img src="me.jpg" alt="Leandra" class="intro-photo" width="400">
 
-  <h3 style="margin-left:60px;">Homework</h3>
-
-  <!-- Dropdown for Homework (replaces previous list) -->
-  <div class="dropdown" id="homework-dropdown">
-    <button class="dropbtn" id="homework-toggle" aria-expanded="false" aria-controls="homework-panel">Homework ▾</button>
-    <div class="dropdown-content" id="homework-panel" role="region" aria-labelledby="homework-toggle">
-      <div class="homework-board">
-        <!-- Each polaroid links to the homework page and uses the main image from that homework as a thumbnail -->
-        <a class="polaroid" href="readings.html" title="Reading Responses">
-          <img src="me.jpg" alt="Reading Responses">
-          <div class="caption">Reading Responses</div>
-        </a>
-
-        <a class="polaroid" href="hw1.html" title="Homework 1: Web Development">
-          <img src="me.jpg" alt="Homework 1">
-          <div class="caption">HW1: Web Dev</div>
-        </a>
-
-        <a class="polaroid" href="hw2.html" title="Homework 2: Cropping and Resizing">
-          <img src="Flower.jpg" alt="Homework 2">
-          <div class="caption">HW2: Cropping</div>
-        </a>
-
-        <a class="polaroid" href="hw3.html" title="Homework 3: Depth of Field">
-          <img src="Cones.jpg" alt="Homework 3">
-          <div class="caption">HW3: DOF</div>
-        </a>
-
-        <a class="polaroid" href="hw4.html" title="Homework 4: Photomage">
-          <img src="cup.jpg" alt="Homework 4">
-          <div class="caption">HW4: Photomage</div>
-        </a>
-
-        <a class="polaroid" href="hw5.html" title="Homework 5: SC - Photomage and Design">
-          <img src="Design 5.jpg" alt="Homework 5">
-          <div class="caption">HW5: SC</div>
-        </a>
-
-        <a class="polaroid" href="hw6.html" title="Homework 6: Vector Eye">
-          <img src="Eye2.jpg" alt="Homework 6">
-          <div class="caption">HW6: Vector Eye</div>
-        </a>
-
-        <a class="polaroid" href="hw7.html" title="Homework 7: Illustrated Environment">
-          <img src="House.jpg" alt="Homework 7">
-          <div class="caption">HW7: Illustrated Env</div>
-        </a>
-
-        <a class="polaroid" href="hw8.html" title="Homework 8: 2 Animated Gifs">
-          <img src="Eye2.jpg" alt="Homework 8">
-          <div class="caption">HW8: GIFs</div>
-        </a>
-
-        <a class="polaroid" href="hw9.html" title="Homework 9: Data Visualization">
-          <img src="Graph.jpg" alt="Homework 9">
-          <div class="caption">HW9: Data Viz</div>
-        </a>
-
-        <a class="polaroid" href="hw10.html" title="Homework 10: Interactive Story">
-          <!-- hw10 doesn't exist in the repo yet; link kept but no thumbnail file available -->
-          <div class="caption">HW10: Interactive Story</div>
-        </a>
-
-      </div>
-    </div>
-  </div>
-
   <script>
-    // Update left sidebar background on scroll (fixed reference)
-    const leftSidebar = document.querySelector('.scrollbar');
-    const heart = document.querySelector('.heart');
-    window.addEventListener('scroll', () => {
-      const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-      const purpleValue = Math.max(180, Math.min(255, Math.floor(220 - scrollPercent * 100)));
-      if (leftSidebar) leftSidebar.style.background = `rgb(${purpleValue}, ${purpleValue - 20}, 255)`;
-    });
+    // Top Homework dropdown toggle
+    const topHwToggle = document.getElementById('top-homework-toggle');
+    const topHw = document.getElementById('top-homework');
+    topHwToggle && topHwToggle.addEventListener('click', (e) => { e.stopPropagation(); const open = topHw.classList.toggle('open'); topHwToggle.setAttribute('aria-expanded', String(open)); });
+    window.addEventListener('click', (e) => { if (!topHw.contains(e.target)) { topHw.classList.remove('open'); topHwToggle && topHwToggle.setAttribute('aria-expanded','false'); } });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') { topHw.classList.remove('open'); topHwToggle && topHwToggle.setAttribute('aria-expanded','false'); } });
 
     // Heart click effect
-    heart && heart.addEventListener('click', () => {
-      heart.style.transform = 'scale(1.2)';
-      setTimeout(() => heart.style.transform = '', 250);
-    });
-
-    // Homework dropdown toggle
-    const hwToggle = document.getElementById('homework-toggle');
-    const hwDropdown = document.getElementById('homework-dropdown');
-
-    hwToggle && hwToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const open = hwDropdown.classList.toggle('open');
-      hwToggle.setAttribute('aria-expanded', String(open));
-    });
-
-    // Close dropdown clicking outside
-    window.addEventListener('click', (e) => {
-      if (!hwDropdown.contains(e.target)) {
-        hwDropdown.classList.remove('open');
-        hwToggle && hwToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    // Close with Escape key
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        hwDropdown.classList.remove('open');
-        hwToggle && hwToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
+    const heart = document.querySelector('.heart');
+    heart && heart.addEventListener('click', () => { heart.style.transform = 'scale(1.2)'; setTimeout(() => heart.style.transform = '', 250); });
   </script>
-
 </body>
 </html>
