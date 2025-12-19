@@ -25,9 +25,29 @@
     h1 { font-family:'Lobster', cursive; margin-left:60px; }
 
     /* Polaroid (merged) */
-    .polaroid { display:inline-block; background:#fff; padding:8px 8px 20px 8px; box-shadow:4px 6px 12px rgba(0,0,0,0.15); margin:8px; border-radius:4px; text-align:center; }
-    .polaroid img{ width:220px; height:auto; display:block; border-radius:2px; }
-    .caption{ font-size:0.9em; color:#333; margin-top:6px; }
+.polaroid {
+  display: inline-block;
+  background: #fff;
+  padding: 8px 8px 24px 8px; /* increased bottom padding */
+  box-shadow: 4px 6px 12px rgba(0,0,0,0.15);
+  margin: 8px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.polaroid img {
+  width: 250px;   /* 5x7 portrait width */
+  height: 350px;  /* 5x7 portrait height */
+  display: block;
+  border-radius: 2px;
+}
+
+.caption {
+  font-size: 0.9em;
+  color: #333;
+  margin-top: 6px;
+}
+
 
     @media (max-width:600px) { body { padding-left:0; } .scrollbar { display:none; } h1, .nav { margin-left:12px; } }
   </style>
@@ -46,13 +66,13 @@
   <!-- thumbnail -->
   <div class="polaroid">
     <a href="me.jpg"><img src="me.jpg" alt="Me thumbnail"></a>
-    <div class="caption">Main image</div>
+    <div class="caption">ME</div>
   </div>
 
   <p>My name is Leandra Suriel. I’m 21 years old and currently a 24cr studio art major, pursuing a BA in it. I’m a calm person who values peace, quiet, and time with Jesus. I love creating and expressing myself through different forms of art. My main focus is drawing and painting, but I also sculpt, work digitally, and I’m beginning to learn crochet. I was born in the Dominican Republic and lived there until I was 11, before moving to the United States right before turning 12. Since then, I’ve been living in Brooklyn, balancing college life with other work responsibilities outside of class. </p>
 
-  <p>My goal is to build a career centered around art, since it’s something I truly love and find joy in. Studying art is not just about earning a degree for me—it’s about growing into the artist I hope to become. Every project I work on, whether it’s painting, sculpting, or trying new creative skills, strengthens my passion and reminds me why I chose this path. Art brings me happiness, and I intend to dedicate my future to it.</p>
-  <img src="me.jpg" width="400px" alt="Me">
+  <p>My goal is to build a career centered around art, since it’s something I truly love and find joy in. Studying art is not just about earning a degree for me it’s about growing into the artist I hope to become. Every project I work on, whether it’s painting, sculpting, or trying new creative skills, strengthens my passion and reminds me why I chose this path. Art brings me happiness, and I intend to dedicate my future to it.</p>
+  
 
   <script>
     // Heart click effect
