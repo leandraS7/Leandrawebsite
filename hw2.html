@@ -4,33 +4,115 @@
   <title>Homework #2</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Homework 2">
+  <meta name="description" content="this is the second homework assigment for FA25 MEDP150">
 
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   <style>
-    body { margin:0; padding:0; background:#DCD0FF; font-family:"Times New Roman", serif; color:#2b2340; min-height:100vh; padding-left:60px; box-sizing:border-box; }
+    body {
+      margin:0;
+      padding:0;
+      background:#DCD0FF;
+      font-family:"Times New Roman", serif;
+      color:#2b2340;
+      min-height:100vh;
+      padding-left:60px;
+      box-sizing:border-box;
+    }
+
     ::-webkit-scrollbar { width: 14px; }
-    ::-webkit-scrollbar-track { background: #efe8ff; border-left: 1px solid rgba(0,0,0,0.03); }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #c4a8ff, #8c63ff); border-radius: 12px; border: 3px solid #efe8ff; }
-    scrollbar-width: thin; scrollbar-color: #8c63ff #efe8ff;
+    ::-webkit-scrollbar-track {
+      background: #efe8ff;
+      border-left: 1px solid rgba(0,0,0,0.03);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #c4a8ff, #8c63ff);
+      border-radius: 12px;
+      border: 3px solid #efe8ff;
+    }
+    scrollbar-width: thin;
+    scrollbar-color: #8c63ff #efe8ff;
 
-    .scrollbar { position: fixed; top:0; left:0; width:60px; height:100%; background:#E0D0FF; display:flex; justify-content:center; align-items:flex-start; padding-top:20px; z-index:100; }
-    .scrollbar .heart { font-size:30px; cursor:pointer; color:#FF69B4; transition: transform 0.2s; user-select:none; }
+    .scrollbar {
+      position: fixed;
+      top:0;
+      left:0;
+      width:60px;
+      height:100%;
+      background:#E0D0FF;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      padding-top:20px;
+      z-index:100;
+    }
 
-    .nav { display:flex; gap:18px; align-items:center; background:#fff; padding:10px 16px; margin-left:60px; position:sticky; top:0; z-index:90; border-bottom:1px solid rgba(0,0,0,0.05); }
-    .nav a { color:#6ea9ff; text-decoration:none; }
+    .scrollbar .heart {
+      font-size:30px;
+      cursor:pointer;
+      color:#FF69B4;
+      transition: transform 0.2s;
+      user-select:none;
+    }
 
-    h1 { font-family:'Lobster', cursive; margin-left:60px; }
+    .nav {
+      display:flex;
+      gap:18px;
+      align-items:center;
+      background:#fff;
+      padding:10px 16px;
+      margin-left:60px;
+      position:sticky;
+      top:0;
+      z-index:90;
+      border-bottom:1px solid rgba(0,0,0,0.05);
+    }
 
-    .polaroid { display:inline-block; background:#fff; padding:8px 8px 20px 8px; box-shadow:4px 6px 12px rgba(0,0,0,0.15); margin:8px; border-radius:4px; text-align:center; }
-    .polaroid img{ width:400px; height:auto; display:block; border-radius:2px; }
-    .caption{ font-size:0.9em; color:#333; margin-top:6px; }
+    .nav a {
+      color:#6ea9ff;
+      text-decoration:none;
+    }
 
-    @media (max-width:600px) { body { padding-left:0; } .scrollbar { display:none; } h1, .nav { margin-left:12px; } }
+    h1 {
+      font-family:'Lobster', cursive;
+      margin-left:60px;
+    }
+
+    /* ✅ FIXED POLAROID — wraps image size naturally */
+    .polaroid {
+      display:inline-block;
+      background:#fff;
+      padding:10px 10px 26px 10px; /* adjusted for landscape images */
+      box-shadow:4px 6px 12px rgba(0,0,0,0.15);
+      margin:8px;
+      border-radius:4px;
+      text-align:center;
+    }
+
+    .polaroid img {
+      width:400px;     /* required width */
+      height:auto;     /* keeps original image ratio */
+      display:block;
+      border-radius:2px;
+    }
+
+    .caption {
+      font-size:0.9em;
+      color:#333;
+      margin-top:8px;
+    }
+
+    @media (max-width:600px) {
+      body { padding-left:0; }
+      .scrollbar { display:none; }
+      h1, .nav { margin-left:12px; }
+    }
   </style>
 </head>
+
 <body>
-  <div class="scrollbar"><div class="heart" title="Like">❤️</div></div>
+  <div class="scrollbar">
+    <div class="heart" title="Like">❤️</div>
+  </div>
 
   <div class="nav">
     <a class="home-link" href="homework.html">Homework</a>
@@ -41,22 +123,29 @@
   <h1>Homework 2: Cropping and Resizing</h1>
 
   <!-- thumbnails -->
-  <div class="polaroid"><a href="Flower.jpg"><img src="Flower.jpg" alt="Flower thumbnail"></a><div class="caption">Flower</div></div>
-  <div class="polaroid"><a href="Layla.jpg"><img src="Layla.jpg" alt="Layla thumbnail"></a><div class="caption">Layla</div></div>
+  <div class="polaroid">
+    <a href="Flower.jpg"><img src="Flower.jpg" alt="Flower thumbnail"></a>
+    <div class="caption">Flower</div>
+  </div>
+
+  <div class="polaroid">
+    <a href="Layla.jpg"><img src="Layla.jpg" alt="Layla thumbnail"></a>
+    <div class="caption">Layla</div>
+  </div>
 
   <img src="Flower.jpg" width="400px" alt="Flower">
   <img src="Flower2.jpg" width="400px" alt="Flower2">
   <img src="Layla.jpg" width="400px" alt="Layla">
   <img src="Layla2.jpg" width="400px" alt="Layla2">
 
-  <p>The two images I chose are: a flower seen through a “dark tunnel” made from a Bounty paper roll, and my pet turtle, Layla (her name for now, depending on gender). I picked these because both struck me as beautiful and caught my attention. I knew I could enhance them using light, hue, or saturation.</p></i>
-For the flower, first copy the image then I size it the file on photoshop to 5 x 7, I cropped it along the rule of thirds so the circle with the petals is centered and more in focus. I brightened the inside of the circle, lowered the whites a bit, and increased the contrast. I also used the curves adjustment layer, moving the four color points (gray, red, green, blue) and adding new ones until I achieved the look I wanted. The result gives the petals the effect of being lit by moonlight, almost like a soft night lamp or like a neon look kind of. after I was done I exported the image. as far as composition, I just wanted to play around with light and my camera , I wanted the surroundings dark and to have a main focus without sides disturbances or outer focus, which is why I used the inner part of the bounty paper roll to create that atmosphere, i placed the roll around some petals to enhance the light reflected on the nature red hue they have (fake flowers btw). as the light is hitting from above and on the side but kind of dimmed it helped the atmosphere I was looking to form with the adjustment layer options I chose.</p>
+  <p>The two images I chose are: a flower seen through a “dark tunnel” made from a Bounty paper roll, and my pet turtle, Layla (her name for now, depending on gender)...</p>
 
-<p>For my second image of Layla, I copy the photo then used the copy photo and crop it to 1920 x 1080px, I shifted her slightly to the right of the grids center. I adjusted the light, whites, brightness, and contrast, just like I did with the flower. Then I experimented more with the curves, adding extra points and adjusting the colors. I adjusted those points almost like an investing graph or with mountain spikes kind of look until a rainbow-like glow formed around her shell and the surrounding space. Finally, I applied a vibrance adjustment layer, setting vibrance to 100% and saturation to 30%. I wanted to try something new. Making the image feel more alive, almost dreamlike. Overall, I’m happy with how both edits turned out. I choose her image because I like my turtle and I wanted to make something fun with her/him in it, since it's cute although they act like that to beg for more food. plus the selection of their lamps would make pretty colors or an interesting composition kind of like she/him is standing or dancing. I was focusing on Layla being on the middle pr somewhat on a form where I could crop her to be in the middle, I also wanted a little of the background to be shown as to show her surroundings but most importantly her inner and a little of her outer shell, just cause I though it would look nice and it did, she kind of looks like a diamond in some parts. </p>
-  
   <script>
     const heart = document.querySelector('.heart');
-    heart && heart.addEventListener('click', () => { heart.style.transform = 'scale(1.2)'; setTimeout(() => heart.style.transform = '', 250); });
+    heart && heart.addEventListener('click', () => {
+      heart.style.transform = 'scale(1.2)';
+      setTimeout(() => heart.style.transform = '', 250);
+    });
   </script>
 </body>
 </html>
