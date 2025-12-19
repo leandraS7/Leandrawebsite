@@ -7,39 +7,24 @@
   <meta name="description" content="Homework 8">
   <style>
     .polaroid { display:inline-block; background:#fff; padding:8px 8px 20px 8px; box-shadow:4px 6px 12px rgba(0,0,0,0.15); margin:8px; border-radius:4px; text-align:center; }
-    .polaroid img{ width:220px; height:auto; display:block; border-radius:2px; }
-    .caption{ font-size:0.9em; color:#333; margin-top:6px; }
+    .polaroid img { width:220px; height:auto; display:block; border-radius:2px; }
+    .caption { font-size:0.9em; color:#333; margin-top:6px; }
+
+    /* Main images larger */
+    .polaroid.main img { width:400px; }
   </style>
 </head>
 <body>
   <h1>Homework 8: 2 Animated Gifs</h1>
 
 
-  <!-- Main images wrapped as polaroids -->
-  <div class="polaroid">
-    <img src="Eye2.jpg" width="400px" alt="Eye2">
-    <div class="caption">Eye2</div>
-  </div>
-  <div class="polaroid">
-    <img src="Eye2N.jpg" width="400px" alt="Eye2N">
-    <div class="caption">Eye2N</div>
-  </div>
-  <div class="polaroid">
-    <img src="Eye2C.jpg" width="400px" alt="Eye2C">
-    <div class="caption">Eye2C</div>
-  </div>
-  <div class="polaroid">
-    <img src="eyegif.gif" width="400px" alt="eyegif">
-    <div class="caption">eyegif</div>
-  </div>
-  <div class="polaroid">
-    <img src="ME.jpg" width="400px" alt="ME">
-    <div class="caption">ME</div>
-  </div>
-  <div class="polaroid">
-    <img src="puppet.gif" width="400px" alt="puppet">
-    <div class="caption">puppet</div>
-  </div>
+  <!-- Main images as polaroids -->
+  <div class="polaroid main"><img src="Eye2.jpg" alt="Eye2"><div class="caption">Eye2</div></div>
+  <div class="polaroid main"><img src="Eye2N.jpg" alt="Eye2N"><div class="caption">Eye2N</div></div>
+  <div class="polaroid main"><img src="Eye2C.jpg" alt="Eye2C"><div class="caption">Eye2C</div></div>
+  <div class="polaroid main"><img src="eyegif.gif" alt="eyegif"><div class="caption">eyegif</div></div>
+  <div class="polaroid main"><img src="ME.jpg" alt="ME"><div class="caption">ME</div></div>
+  <div class="polaroid main"><img src="puppet.gif" alt="puppet"><div class="caption">puppet</div></div>
 
   <p>First I created one duplicate of the Eye2 image and fixed each individual eye to be half blinking or half closed, then I made another duplicate of that and fully made the eyes close. I also made the tears move with the sad eye. After that, I exported each artboard or image to Photoshop: File > Script > Load into Stacks, chose the 3 images of the blinking motion, opened the Timeline panel, selected Create Frame Animation, made frames from layers, set the animation to forever, and adjusted durations (open 0.1s, half closed 0.15s, closed 0.2s). To export the GIF I selected File > Export > Save for Web, set size 504x360 px, colors 256, dither 100%, and saved as eyegif.</p>
 <br>
