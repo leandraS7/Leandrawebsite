@@ -4,22 +4,123 @@
   <title>Homework #6</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Homework 6">
+  <meta name="description" content="this is the six homework assigment for FA25 MEDP150">
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
   <style>
-    .polaroid { display:inline-block; background:#fff; padding:8px 8px 20px 8px; box-shadow:4px 6px 12px rgba(0,0,0,0.15); margin:8px; border-radius:4px; text-align:center; }
-    .polaroid img{ width:220px; height:auto; display:block; border-radius:2px; }
-    .caption{ font-size:0.9em; color:#333; margin-top:6px; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #DCD0FF;
+      font-family: "Times New Roman", serif;
+      color: #2b2340;
+      min-height: 100vh;
+      padding-left: 60px;
+      box-sizing: border-box;
+    }
+
+    /* Scrollbar styles */
+    ::-webkit-scrollbar { width: 14px; }
+    ::-webkit-scrollbar-track { background: #efe8ff; border-left: 1px solid rgba(0,0,0,0.03); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #c4a8ff, #8c63ff); border-radius: 12px; border: 3px solid #efe8ff; }
+    ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #af85ff, #6f3cff); }
+    scrollbar-width: thin;
+    scrollbar-color: #8c63ff #efe8ff;
+
+    /* Left fixed sidebar with heart */
+    .scrollbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 100%;
+      background: #E0D0FF;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 20px;
+      z-index: 100;
+    }
+    .scrollbar .heart {
+      font-size: 30px;
+      cursor: pointer;
+      color: #FF69B4;
+      transition: transform 0.2s;
+      user-select: none;
+    }
+
+    /* Top navigation */
+    .nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      background: #fff;
+      padding: 10px 16px;
+      margin-left: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .nav a { color: #6ea9ff; text-decoration: none; font-size: 1em; }
+
+    h1 { font-family: 'Lobster', cursive; margin-left: 60px; }
+
+    /* Polaroid */
+    .polaroid {
+      background: white;
+      padding: 10px 10px 30px 10px;
+      box-shadow: 5px 5px 10px rgba(0,0,0,0.18);
+      display: inline-block;
+      position: relative;
+      transition: transform 0.25s, box-shadow 0.25s;
+      border-radius: 4px;
+      text-align: center;
+      margin: 8px;
+      max-width: 240px;
+    }
+    .polaroid img { display: block; width: 100%; height: auto; border-radius: 2px; }
+    .polaroid .caption { margin-top: 8px; font-size: 0.95em; color: #333; }
+
+    @media (max-width: 600px) {
+      body { padding-left: 0; }
+      .scrollbar { display: none; }
+      h1, .nav { margin-left: 12px; }
+    }
   </style>
 </head>
 <body>
-  <h1>Homework 6: Vector Eye</h1>
+  <div class="scrollbar">
+    <div class="heart" title="Like">❤️</div>
+  </div>
 
-  <div class="polaroid"><a href="Eye .jpg"><img src="Eye .jpg" alt="Eye thumbnail"></a><div class="caption">Eye</div></div>
-  <div class="polaroid"><a href="Eye2.jpg"><img src="Eye2.jpg" alt="Eye2 thumbnail"></a><div class="caption">Eye2</div></div>
+  <div class="nav">
+    <a class="home-link" href="homework.html">Homework</a>
+    <a class="home-link" href="readings.html">Readings</a>
+    <a class="home-link" href="index.html">Home</a>
+  </div>
 
-  <img src="Eye .jpg" width="400px" alt="Eye">
-  <img src="Eye2.jpg" width="400px" alt="Eye2">
+  <h1>Homework 6: Vector eye</h1>
 
-  <a href="index.html">HOME</a>
+  <div style="margin-left:60px; margin: 12px 20px 40px 60px;">
+    <div class="polaroid">
+      <!-- Replace placeholder.jpg with your actual thumbnail when ready -->
+      <a href="Eye .jpg"><img src="Eye2.jpg" alt="HW6 thumbnail"></a>
+      <div class="caption">HW6 (placeholder)</div>
+    </div>
+
+    <p>First, the size is set on 1920 x 1080 points, kept in RGB, and the DPI on 300. After I selected the paint brush in the Art section (Adobe Illustrator on iPad). I used ink paint and a fountain pen to draw the eye, teardrops- smoky tears, and the little star. In a nutshell, all of it, as well as another pen called hand-drawn for some texture around the tear-smoke. To color, I selected a basic round brush on the blob brush section. For some other texture in the tear-smoke side, I used the floral brush (paint brush; art). For the background in selected a type of navy blue color; in between light and dark. For the eyebrows, the color is a brown hue, and the brush isa scroll pen 1. For the top eyelid and a little of the side was colored with a blob round brush. I used a calligraphy flat-edge 40pt brush and lowered the size to 9, maybe, I wrote on the bottom of the eye ADONAI ORI, with the same brush but size 1, and signed my artist name on the tear of the eye. The emotion I attempted to express on this is awe and tearful gladness, a type of joy. Represented by the blue background, blue symbolizing  tears, while the eye is looking upwards and the reflection of the awe in it formed by the star at the center iris, the tears being smoked away are the gladness and joy being felt. Portraying an overwhelming sensation not to be mistaken for sadness, as the eyebrow is up, not in a sad expression. I Made other eyes in an illustration by 1920 x 1080, 5 eyes total, depicting different emotions, from happy, irritated, suspicious, sad, and disappointed. I was going to add text to the eyes, naming each emotion, but decided not to and let that be decided by you since it’s more fun that way. These eyes are green because I think it’s a good contrast with the blue background. The center eye has different hues  of green to depict its emotion, and the center iris is red, and because of the dark green, it looks black, the same colors as the center iris of the other eyes, it's the color from the red section of the color wheel. The shapes I used were triangles and circles. I combined the triangles with the combine and shape builder tools, and then I transformed it to make it oval-looking from top to bottom and keep the pointy parts on the side.</p>
+  </div>
+
+  <script>
+    // Heart click effect
+    const heart = document.querySelector('.heart');
+    heart && heart.addEventListener('click', () => {
+      heart.style.transform = 'scale(1.2)';
+      setTimeout(() => heart.style.transform = '', 250);
+    });
+  </script>
 </body>
 </html>
