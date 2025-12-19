@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Homework Board</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #DCD0FF;
+      font-family: "Times New Roman", serif;
+      color: #2b2340;
+      min-height: 100vh;
+      padding-left: 60px;
+      box-sizing: border-box;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 14px; }
+    ::-webkit-scrollbar-track { background: #efe8ff; border-left: 1px solid rgba(0,0,0,0.03); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #c4a8ff, #8c63ff); border-radius: 12px; border: 3px solid #efe8ff; }
+    ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #af85ff, #6f3cff); }
+    scrollbar-width: thin;
+    scrollbar-color: #8c63ff #efe8ff;
+
+    .scrollbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 100%;
+      background: #E0D0FF;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 20px;
+      z-index: 100;
+    }
+    .scrollbar .heart { font-size:30px; cursor:pointer; color:#FF69B4; transition: transform 0.2s; user-select:none; }
+
+    .nav {
+      display:flex;
+      gap:18px;
+      align-items:center;
+      background:#fff;
+      padding:10px 16px;
+      margin-left:60px;
+      position:sticky;
+      top:0;
+      z-index:90;
+      border-bottom:1px solid rgba(0,0,0,0.05);
+    }
+    .nav a { color:#6ea9ff; text-decoration:none; }
+
+    h1 { font-family:'Lobster',cursive; margin-left:60px; }
+
+    .homework-board { margin: 16px 20px; margin-left:60px; display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:12px; max-width:1000px; }
+
+    .polaroid {
+      background: white;
+      padding: 10px 10px 30px 10px;
+      box-shadow: 5px 5px 10px rgba(0,0,0,0.18);
+      display: inline-block;
+      position: relative;
+      transition: transform 0.25s, box-shadow 0.25s;
+      border-radius:4px;
+      text-align:center;
+      margin:8px;
+    }
+    .polaroid img { display:block; width:100%; height:auto; border-radius:2px; }
+    .polaroid .caption { margin-top:8px; font-size:0.9em; color:#444; }
+
+    @media (max-width:600px) {
+      body { padding-left:0; }
+      .scrollbar { display:none; }
+      h1, .nav, .homework-board { margin-left:12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scrollbar"><div class="heart" title="Like">❤️</div></div>
+
+  <div class="nav">
+    <a class="home-link" href="homework.html">Homework</a>
+    <a class="home-link" href="readings.html">Readings</a>
+    <a class="home-link" href="index.html">Home</a>
+  </div>
+
+  <h1>Homework Board</h1>
+
+  <div class="homework-board">
+    <a class="polaroid" href="readings.html"><img src="me.jpg" alt="Readings"><div class="caption">Readings</div></a>
+    <a class="polaroid" href="hw1.html"><img src="me.jpg" alt="HW1"><div class="caption">HW1</div></a>
+    <a class="polaroid" href="hw2.html"><img src="Flower.jpg" alt="HW2"><div class="caption">HW2</div></a>
+    <a class="polaroid" href="hw3.html"><img src="Cones.jpg" alt="HW3"><div class="caption">HW3</div></a>
+    <a class="polaroid" href="hw4.html"><img src="cup.jpg" alt="HW4"><div class="caption">HW4</div></a>
+    <a class="polaroid" href="hw5.html"><img src="Design 5.jpg" alt="HW5"><div class="caption">HW5</div></a>
+    <!-- hw6 absent in repo; include placeholder linking to hw6.html if you add it later -->
+    <a class="polaroid" href="hw6.html"><img src="placeholder.jpg" alt="HW6"><div class="caption">HW6</div></a>
+    <a class="polaroid" href="hw7.html"><img src="House.jpg" alt="HW7"><div class="caption">HW7</div></a>
+    <a class="polaroid" href="hw8.html"><img src="Eye2.jpg" alt="HW8"><div class="caption">HW8</div></a>
+    <a class="polaroid" href="hw9.html"><img src="Graph.jpg" alt="HW9"><div class="caption">HW9</div></a>
+    <a class="polaroid" href="hw10.html"><div class="caption">HW10</div></a>
+  </div>
+
+  <script>
+    const heart = document.querySelector('.heart');
+    heart && heart.addEventListener('click', () => { heart.style.transform = 'scale(1.2)'; setTimeout(() => heart.style.transform = '', 250); });
+  </script>
+</body>
+</html>
