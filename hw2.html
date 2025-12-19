@@ -1,17 +1,118 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Homework #2</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Homework 2">
+  <title>Homework #2</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
   <style>
-    .polaroid { display:inline-block; background:#fff; padding:8px 8px 20px 8px; box-shadow:4px 6px 12px rgba(0,0,0,0.15); margin:8px; border-radius:4px; text-align:center; }
-    .polaroid img{ width:220px; height:auto; display:block; border-radius:2px; }
-    .caption{ font-size:0.9em; color:#333; margin-top:6px; }
+    /* Body and background */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #DCD0FF; /* Lilac light purple */
+      font-family: "Times New Roman", serif;
+      color: #2b2340;
+      min-height: 100vh;
+      /* leave space for fixed left sidebar */
+      padding-left: 60px;
+      box-sizing: border-box;
+    }
+
+    /* Real browser scrollbar styling (WebKit + Firefox) */
+    /* WebKit browsers */
+    ::-webkit-scrollbar {
+      width: 14px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #efe8ff; /* pale lilac track */
+      border-left: 1px solid rgba(0,0,0,0.03);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #c4a8ff, #8c63ff);
+      border-radius: 12px;
+      border: 3px solid #efe8ff; /* padding look */
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #af85ff, #6f3cff);
+    }
+
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #8c63ff #efe8ff;
+
+    /* Sidebar with heart (left fixed) */
+    .scrollbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 100%;
+      background: #E0D0FF;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 20px;
+      transition: background 0.3s;
+      z-index: 100;
+    }
+
+    .scrollbar .heart {
+      font-size: 30px;
+      cursor: pointer;
+      color: #FF69B4; /* pink heart */
+      transition: transform 0.2s;
+      user-select: none;
+    }
+
+    /* Top navigation */
+    .nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      background: #fff;
+      padding: 10px 16px;
+      margin-left: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .nav a, .nav button { color: #6ea9ff; font-size: 1em; background: none; border: none; cursor: pointer; text-decoration: none; }
+    .nav .home-link { color: #6ea9ff; text-decoration: none; }
+
+    h1, h2, h3, h4, h5, h6 { font-family: 'Lobster', cursive; margin-left: 60px; }
+
+    p { margin-left: 60px; max-width: 900px; line-height: 1.5; }
+
+    /* Polaroid common style */
+    .polaroid { background: white; padding: 10px 10px 30px 10px; box-shadow: 5px 5px 10px rgba(0,0,0,0.18); display: inline-block; position: relative; transition: transform 0.25s, box-shadow 0.25s; border-radius: 4px; text-align: center; color: #222; text-decoration: none; margin: 8px; }
+    .polaroid img { display: block; width: 220px; height: auto; border-radius: 2px; }
+    .polaroid:hover { transform: rotate(-3deg) scale(1.03); box-shadow: 8px 10px 18px rgba(0,0,0,0.25); }
+    .polaroid .caption { margin-top: 8px; font-size: 0.9em; color: #444; }
+
+    img { margin-left: 60px; }
+
+    @media (max-width: 600px) { body { padding-left: 0; } .scrollbar { display: none; } h1, .nav, p, img { margin-left: 12px; } }
   </style>
 </head>
 <body>
+
+  <div class="scrollbar">
+    <div class="heart" title="Like">❤️</div>
+  </div>
+
+  <!-- Top navigation -->
+  <div class="nav">
+    <a class="home-link" href="homework.html">Homework</a>
+    <a class="home-link" href="readings.html">Readings</a>
+    <a class="home-link" href="index.html">Home</a>
+  </div>
+
   <h1>Homework 2: Cropping and Resizing</h1>
 
   <!-- thumbnails -->
@@ -25,6 +126,10 @@
 
   <p>The two images I chose are: ...</p>
 
-  <a href="index.html">HOME</a>
+  <script>
+    // Heart click effect
+    const heart = document.querySelector('.heart');
+    heart && heart.addEventListener('click', () => { heart.style.transform = 'scale(1.2)'; setTimeout(() => heart.style.transform = '', 250); });
+  </script>
 </body>
 </html>

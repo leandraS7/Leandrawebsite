@@ -228,27 +228,9 @@
     <div class="heart" title="Like">❤️</div>
   </div>
 
-  <!-- Top navigation with Homework dropdown, Readings link, Home link -->
+  <!-- Top navigation with Homework, Readings, Home links -->
   <div class="nav">
-    <div class="dropdown" id="top-homework">
-      <button class="dropbtn" id="top-homework-toggle" aria-expanded="false">Homework ▾</button>
-      <div class="dropdown-content" id="top-homework-panel" role="region" aria-labelledby="top-homework-toggle">
-        <div class="homework-board">
-          <a class="polaroid" href="readings.html"><img src="me.jpg" alt="Readings"><div class="caption">Readings</div></a>
-          <a class="polaroid" href="hw1.html"><img src="me.jpg" alt="HW1"><div class="caption">HW1</div></a>
-          <a class="polaroid" href="hw2.html"><img src="Flower.jpg" alt="HW2"><div class="caption">HW2</div></a>
-          <a class="polaroid" href="hw3.html"><img src="Cones.jpg" alt="HW3"><div class="caption">HW3</div></a>
-          <a class="polaroid" href="hw4.html"><img src="cup.jpg" alt="HW4"><div class="caption">HW4</div></a>
-          <a class="polaroid" href="hw5.html"><img src="Design 5.jpg" alt="HW5"><div class="caption">HW5</div></a>
-          <a class="polaroid" href="hw6.html"><img src="Eye2.jpg" alt="HW6"><div class="caption">HW6</div></a>
-          <a class="polaroid" href="hw7.html"><img src="House.jpg" alt="HW7"><div class="caption">HW7</div></a>
-          <a class="polaroid" href="hw8.html"><img src="Eye2.jpg" alt="HW8"><div class="caption">HW8</div></a>
-          <a class="polaroid" href="hw9.html"><img src="Graph.jpg" alt="HW9"><div class="caption">HW9</div></a>
-          <a class="polaroid" href="hw10.html"><div class="caption">HW10</div></a>
-        </div>
-      </div>
-    </div>
-
+    <a class="home-link" href="homework.html">Homework</a>
     <a class="home-link" href="readings.html">Readings</a>
     <a class="home-link" href="index.html">Home</a>
   </div>
@@ -262,13 +244,6 @@
   <img src="me.jpg" alt="Leandra" class="intro-photo" width="400">
 
   <script>
-    // Top Homework dropdown toggle
-    const topHwToggle = document.getElementById('top-homework-toggle');
-    const topHw = document.getElementById('top-homework');
-    topHwToggle && topHwToggle.addEventListener('click', (e) => { e.stopPropagation(); const open = topHw.classList.toggle('open'); topHwToggle.setAttribute('aria-expanded', String(open)); });
-    window.addEventListener('click', (e) => { if (!topHw.contains(e.target)) { topHw.classList.remove('open'); topHwToggle && topHwToggle.setAttribute('aria-expanded','false'); } });
-    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') { topHw.classList.remove('open'); topHwToggle && topHwToggle.setAttribute('aria-expanded','false'); } });
-
     // Heart click effect
     const heart = document.querySelector('.heart');
     heart && heart.addEventListener('click', () => { heart.style.transform = 'scale(1.2)'; setTimeout(() => heart.style.transform = '', 250); });
