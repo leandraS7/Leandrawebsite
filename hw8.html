@@ -5,19 +5,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Homework 8">
+
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   <style>
+    body { margin:0; padding:0; background:#DCD0FF; font-family:"Times New Roman", serif; color:#2b2340; min-height:100vh; padding-left:60px; box-sizing:border-box; }
+    ::-webkit-scrollbar { width:14px; }
+    ::-webkit-scrollbar-track { background:#efe8ff; border-left:1px solid rgba(0,0,0,0.03); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #c4a8ff, #8c63ff); border-radius:12px; border:3px solid #efe8ff; }
+    scrollbar-width: thin; scrollbar-color: #8c63ff #efe8ff;
+
+    .scrollbar { position: fixed; top:0; left:0; width:60px; height:100%; background:#E0D0FF; display:flex; justify-content:center; align-items:flex-start; padding-top:20px; z-index:100; }
+    .scrollbar .heart { font-size:30px; cursor:pointer; color:#FF69B4; transition: transform 0.2s; user-select:none; }
+
+    .nav { display:flex; gap:18px; align-items:center; background:#fff; padding:10px 16px; margin-left:60px; position:sticky; top:0; z-index:90; border-bottom:1px solid rgba(0,0,0,0.05); }
+    .nav a { color:#6ea9ff; text-decoration:none; }
+
+    h1 { font-family:'Lobster', cursive; margin-left:60px; }
+
     .polaroid { display:inline-block; background:#fff; padding:8px 8px 20px 8px; box-shadow:4px 6px 12px rgba(0,0,0,0.15); margin:8px; border-radius:4px; text-align:center; }
     .polaroid img { width:220px; height:auto; display:block; border-radius:2px; }
+    .polaroid.main img { width:400px; }
     .caption { font-size:0.9em; color:#333; margin-top:6px; }
 
-    /* Main images larger */
-    .polaroid.main img { width:400px; }
+    @media (max-width:600px) { body { padding-left:0; } .scrollbar { display:none; } h1, .nav { margin-left:12px; } }
   </style>
 </head>
 <body>
+  <div class="scrollbar"><div class="heart" title="Like">❤️</div></div>
+
+  <div class="nav">
+    <a class="home-link" href="homework.html">Homework</a>
+    <a class="home-link" href="readings.html">Readings</a>
+    <a class="home-link" href="index.html">Home</a>
+  </div>
+
   <h1>Homework 8: 2 Animated Gifs</h1>
 
-
+ 
   <!-- Main images as polaroids -->
   <div class="polaroid main"><img src="Eye2.jpg" alt="Eye2"><div class="caption">Eye2</div></div>
   <div class="polaroid main"><img src="Eye2N.jpg" alt="Eye2N"><div class="caption">Eye2N</div></div>
@@ -26,10 +50,9 @@
   <div class="polaroid main"><img src="ME.jpg" alt="ME"><div class="caption">ME</div></div>
   <div class="polaroid main"><img src="puppet.gif" alt="puppet"><div class="caption">puppet</div></div>
 
-  <p>First I created one duplicate of the Eye2 image and fixed each individual eye to be half blinking or half closed, then I made another duplicate of that and fully made the eyes close. I also made the tears move with the sad eye. After that, I exported each artboard or image to Photoshop: File > Script > Load into Stacks, chose the 3 images of the blinking motion, opened the Timeline panel, selected Create Frame Animation, made frames from layers, set the animation to forever, and adjusted durations (open 0.1s, half closed 0.15s, closed 0.2s). To export the GIF I selected File > Export > Save for Web, set size 504x360 px, colors 256, dither 100%, and saved as eyegif.</p>
-<br>
-<p>First, I chose the canvas to be 5x7 and then uploaded my image. I used the subject selection tool to select myself, duplicated the selection (Ctrl + J), deleted the background layer, renamed the new layer as "me", then used gradient fill and hue/saturation to make the background and skin blue. I converted the image to a smart object, used Puppet Warp, duplicated the layer, and applied points to animate the feet, shoulders, and belt like a cat tail, repeating for the opposite motion. I created a frame animation in the Timeline panel, duplicated the first frame for smooth looping, and added text: "feeling a little" in Ravie font, 28.54pt, leading 12pt, tracking 25; "Blue" in Curtz MT, 36pt, leading 48pt, tracking -100, bold, italic, underlined, with warp and shadow effects. Finally, I exported it as a GIF and imported it to my webpage.</p>
-
-  <a href="index.html">HOME</a>
+  <script>
+    const heart = document.querySelector('.heart');
+    heart && heart.addEventListener('click', () => { heart.style.transform = 'scale(1.2)'; setTimeout(() => heart.style.transform = '', 250); });
+  </script>
 </body>
 </html>
