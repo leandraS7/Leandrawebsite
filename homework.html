@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Homework 10 placeholder">
-  <title>Homework #10 (Coming Soon)</title>
+  <meta name="description" content="Leandra's Homework for MEDP 150 FA 2025">
+  <title>Homework - Leandra's Portfolio</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
@@ -88,16 +88,14 @@
     h1, h2, h3, h4, h5, h6 { font-family: 'Lobster', cursive; margin-left: 60px; }
 
     /* Polaroid common style */
-    .polaroid { background: white; padding: 10px 10px 30px 10px; box-shadow: 5px 5px 10px rgba(0,0,0,0.18); display: inline-block; position: relative; transition: transform 0.25s, box-shadow 0.25s; border-radius: 4px; text-align: center; color: #222; text-decoration: none; margin: 8px 0 8px 60px; }
+    .polaroid { background: white; padding: 10px 10px 30px 10px; box-shadow: 5px 5px 10px rgba(0,0,0,0.18); display: inline-block; position: relative; transition: transform 0.25s, box-shadow 0.25s; border-radius: 4px; text-align: center; color: #222; text-decoration: none; }
     .polaroid img { display: block; width: 220px; height: auto; border-radius: 2px; }
     .polaroid:hover { transform: rotate(-3deg) scale(1.03); box-shadow: 8px 10px 18px rgba(0,0,0,0.25); }
-    .polaroid .caption { margin-top: 8px; font-size: 0.95em; color: #444; }
+    .polaroid .caption { margin-top: 8px; font-size: 0.9em; color: #444; }
 
-    p { margin-left: 60px; max-width: 900px; }
-    img { margin-left: 60px; }
-    a { margin-left: 60px; }
+    .homework-board { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 20px 60px 20px 60px; max-width: 1200px; }
 
-    @media (max-width: 600px) { body { padding-left: 0; } .scrollbar { display: none; } h1, .nav, .polaroid, p, img, a { margin-left: 12px; } }
+    @media (max-width: 600px) { body { padding-left: 0; } .scrollbar { display: none; } h1, .nav { margin-left: 12px; } .homework-board { margin-left: 12px; } }
   </style>
 </head>
 <body>
@@ -112,10 +110,22 @@
     <a class="home-link" href="readings.html">Readings</a>
     <a class="home-link" href="index.html">Home</a>
   </div>
-  <h1>Homework 10: Interactive Story (Coming Soon)</h1>
-  <div class="polaroid"><div class="caption">Thumbnail coming soon</div></div>
-  <p>This homework page is not published yet — check back later.</p>
-  <a href="index.html">HOME</a>
+
+  <h1>Homework</h1>
+
+  <div class="homework-board">
+    <a class="polaroid" href="readings.html"><img src="me.jpg" alt="Readings"><div class="caption">Readings</div></a>
+    <a class="polaroid" href="hw1.html"><img src="me.jpg" alt="HW1"><div class="caption">HW1</div></a>
+    <a class="polaroid" href="hw2.html"><img src="Flower.jpg" alt="HW2"><div class="caption">HW2</div></a>
+    <a class="polaroid" href="hw3.html"><img src="Cones.jpg" alt="HW3"><div class="caption">HW3</div></a>
+    <a class="polaroid" href="hw4.html"><img src="cup.jpg" alt="HW4"><div class="caption">HW4</div></a>
+    <a class="polaroid" href="hw5.html"><img src="Design 5.jpg" alt="HW5"><div class="caption">HW5</div></a>
+    <a class="polaroid" href="hw6.html"><img src="Eye2.jpg" alt="HW6"><div class="caption">HW6</div></a>
+    <a class="polaroid" href="hw7.html"><img src="House.jpg" alt="HW7"><div class="caption">HW7</div></a>
+    <a class="polaroid" href="hw8.html"><img src="Eye2.jpg" alt="HW8"><div class="caption">HW8</div></a>
+    <a class="polaroid" href="hw9.html"><img src="Graph.jpg" alt="HW9"><div class="caption">HW9</div></a>
+    <a class="polaroid" href="hw10.html"><div class="caption">HW10</div></a>
+  </div>
 
   <script>
     // Heart click effect
