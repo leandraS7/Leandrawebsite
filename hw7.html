@@ -5,13 +5,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Homework 7">
+
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   <style>
+    body { margin:0; padding:0; background:#DCD0FF; font-family:"Times New Roman", serif; color:#2b2340; min-height:100vh; padding-left:60px; box-sizing:border-box; }
+    ::-webkit-scrollbar { width:14px; }
+    ::-webkit-scrollbar-track { background:#efe8ff; border-left:1px solid rgba(0,0,0,0.03); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #c4a8ff, #8c63ff); border-radius:12px; border:3px solid #efe8ff; }
+    scrollbar-width: thin; scrollbar-color: #8c63ff #efe8ff;
+
+    .scrollbar { position: fixed; top:0; left:0; width:60px; height:100%; background:#E0D0FF; display:flex; justify-content:center; align-items:flex-start; padding-top:20px; z-index:100; }
+    .scrollbar .heart { font-size:30px; cursor:pointer; color:#FF69B4; transition: transform 0.2s; user-select:none; }
+
+    .nav { display:flex; gap:18px; align-items:center; background:#fff; padding:10px 16px; margin-left:60px; position:sticky; top:0; z-index:90; border-bottom:1px solid rgba(0,0,0,0.05); }
+    .nav a { color:#6ea9ff; text-decoration:none; }
+
+    h1 { font-family:'Lobster', cursive; margin-left:60px; }
+
     .polaroid { display:inline-block; background:#fff; padding:8px 8px 20px 8px; box-shadow:4px 6px 12px rgba(0,0,0,0.15); margin:8px; border-radius:4px; text-align:center; }
     .polaroid img{ width:220px; height:auto; display:block; border-radius:2px; }
     .caption{ font-size:0.9em; color:#333; margin-top:6px; }
+
+    @media (max-width:600px) { body { padding-left:0; } .scrollbar { display:none; } h1, .nav { margin-left:12px; } }
   </style>
 </head>
 <body>
+  <div class="scrollbar"><div class="heart" title="Like">❤️</div></div>
+
+  <div class="nav">
+    <a class="home-link" href="homework.html">Homework</a>
+    <a class="home-link" href="readings.html">Readings</a>
+    <a class="home-link" href="index.html">Home</a>
+  </div>
+
   <h1>Homework 7: Illustrated Environment</h1>
 
   <div class="polaroid"><a href="House.jpg"><img src="House.jpg" alt="House thumbnail"></a><div class="caption">House</div></div>
@@ -19,8 +45,10 @@
 
   <img src="House.jpg" width="400px" alt="House">
   <img src="Illustration.jpg" width="400px" alt="Illustration">
-
-  <p>I downloaded an image of an environment on an old singular home. The environment is the woods, and the home seems to be solitary, just what I was looking for. The image i downloaded is from pexels.com, I searched for an old home in autumn. In Illustrator, I set the canvas to 1920 X 1080. I set the image on the canvas and lowered the opacity, then I used the shape tool to form the house, I used the square and triangle as well as the line tool. I modified the shape according to the home guideline with the direct selection tool. The lines of the house across the windows and door i used the dots brush. The shape tool i used it for shaping the lines of the trees, making bigger and smaller tree trunks. I used a line flat blob brush to make the branches. For the leafs, I used the start shape and used the repeat, grid, and radial tools to multiply it and grouped them to make the leafs more realistic.  My used 3 colors: an earthy dull green, a dark navy blue, and violet. I used those colors for the shaping of the house, coloring, and the leaves. I chose this environment because it is a calm and peaceful environment just like the cold chills of autumn. </p>
-  <a href="index.html">HOME</a>
+ <p>I downloaded an image of an environment on an old singular home. The environment is the woods, and the home seems to be solitary, just what I was looking for. The image i downloaded is from pexels.com, I searched for an old home in autumn. In Illustrator, I set the canvas to 1920 X 1080. I set the image on the canvas and lowered the opacity, then I used the shape tool to form the house, I used the square and triangle as well as the line tool. I modified the shape according to the home guideline with the direct selection tool. The lines of the house across the windows and door i used the dots brush. The shape tool i used it for shaping the lines of the trees, making bigger and smaller tree trunks. I used a line flat blob brush to make the branches. For the leafs, I used the start shape and used the repeat, grid, and radial tools to multiply it and grouped them to make the leafs more realistic.  My used 3 colors: an earthy dull green, a dark navy blue, and violet. I used those colors for the shaping of the house, coloring, and the leaves. I chose this environment because it is a calm and peaceful environment just like the cold chills of autumn. </p>
+  <script>
+    const heart = document.querySelector('.heart');
+    heart && heart.addEventListener('click', () => { heart.style.transform = 'scale(1.2)'; setTimeout(() => heart.style.transform = '', 250); });
+  </script>
 </body>
 </html>
