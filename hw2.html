@@ -19,69 +19,10 @@
       box-sizing:border-box;
     }
 
-    ::-webkit-scrollbar { width: 14px; }
-    ::-webkit-scrollbar-track {
-      background: #efe8ff;
-      border-left: 1px solid rgba(0,0,0,0.03);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, #c4a8ff, #8c63ff);
-      border-radius: 12px;
-      border: 3px solid #efe8ff;
-    }
-    scrollbar-width: thin;
-    scrollbar-color: #8c63ff #efe8ff;
-
-    .scrollbar {
-      position: fixed;
-      top:0;
-      left:0;
-      width:60px;
-      height:100%;
-      background:#E0D0FF;
-      display:flex;
-      justify-content:center;
-      align-items:flex-start;
-      padding-top:20px;
-      z-index:100;
-    }
-
-    .scrollbar .heart {
-      font-size:30px;
-      cursor:pointer;
-      color:#FF69B4;
-      transition: transform 0.2s;
-      user-select:none;
-    }
-
-    .nav {
-      display:flex;
-      gap:18px;
-      align-items:center;
-      background:#fff;
-      padding:10px 16px;
-      margin-left:60px;
-      position:sticky;
-      top:0;
-      z-index:90;
-      border-bottom:1px solid rgba(0,0,0,0.05);
-    }
-
-    .nav a {
-      color:#6ea9ff;
-      text-decoration:none;
-    }
-
-    h1 {
-      font-family:'Lobster', cursive;
-      margin-left:60px;
-    }
-
-    /* ✅ FIXED POLAROID — wraps image size naturally */
     .polaroid {
       display:inline-block;
       background:#fff;
-      padding:10px 10px 26px 10px; /* adjusted for landscape images */
+      padding:10px 10px 26px 10px;
       box-shadow:4px 6px 12px rgba(0,0,0,0.15);
       margin:8px;
       border-radius:4px;
@@ -89,8 +30,8 @@
     }
 
     .polaroid img {
-      width:400px;     /* required width */
-      height:auto;     /* keeps original image ratio */
+      width:400px;     /* display size only */
+      height:auto;
       display:block;
       border-radius:2px;
     }
@@ -100,55 +41,44 @@
       color:#333;
       margin-top:8px;
     }
-
-    @media (max-width:600px) {
-      body { padding-left:0; }
-      .scrollbar { display:none; }
-      h1, .nav { margin-left:12px; }
-    }
   </style>
 </head>
 
 <body>
-  <div class="scrollbar">
-    <div class="heart" title="Like">❤️</div>
-  </div>
 
-  <div class="nav">
-    <a class="home-link" href="homework.html">Homework</a>
-    <a class="home-link" href="readings.html">Readings</a>
-    <a class="home-link" href="index.html">Home</a>
-  </div>
+<h1>Homework 2: Cropping and Resizing</h1>
 
-  <h1>Homework 2: Cropping and Resizing</h1>
+<!-- POLAROID THUMBNAILS (click = full resolution) -->
+<div class="polaroid">
+  <a href="Flower2.jpg" target="_blank">
+    <img src="Flower.jpg" alt="Flower">
+  </a>
+  <div class="caption">Flower</div>
+</div>
 
-  <!-- thumbnails -->
-  <div class="polaroid">
-    <a href="Flower.jpg"><img src="Flower.jpg" alt="Flower thumbnail"></a>
-    <div class="caption">Flower</div>
-  </div>
+<div class="polaroid">
+  <a href="Layla2.jpg" target="_blank">
+    <img src="Layla.jpg" alt="Layla">
+  </a>
+  <div class="caption">Layla</div>
+</div>
 
-  <div class="polaroid">
-    <a href="Layla.jpg"><img src="Layla.jpg" alt="Layla thumbnail"></a>
-    <div class="caption">Layla</div>
-  </div>
+<!-- INLINE IMAGES (also clickable to full size) -->
+<a href="Flower.jpg" target="_blank">
+  <img src="Flower.jpg" width="400" alt="Flower">
+</a>
 
-  <img src="Flower.jpg" width="400px" alt="Flower">
-  <img src="Flower2.jpg" width="400px" alt="Flower2">
-  <img src="Layla.jpg" width="400px" alt="Layla">
-  <img src="Layla2.jpg" width="400px" alt="Layla2">
+<a href="Flower2.jpg" target="_blank">
+  <img src="Flower2.jpg" width="400" alt="Flower2">
+</a>
 
- <p> The two images I chose are: a flower seen through a “dark tunnel” made from a Bounty paper roll, and my pet turtle, Layla (her name for now, depending on gender). I picked these because both struck me as beautiful and caught my attention. I knew I could enhance them using light, hue, or saturation. For the flower, I cropped it along the rule of thirds so the circle with the petals is centered and more in focus. I brightened the inside of the circle, lowered the whites a bit, and increased the contrast. I also used the curves adjustment layer, moving the four color points (gray, red, green, blue) and adding new ones until I achieved the look I wanted. The result gives the petals the effect of being lit by moonlight, almost like a soft night lamp.
+<a href="Layla.jpg" target="_blank">
+  <img src="Layla.jpg" width="400" alt="Layla">
+</a>
 
-</p>
+<a href="Layla2.jpg" target="_blank">
+  <img src="Layla2.jpg" width="400" alt="Layla2">
+</a>
 
-  <p> For my second image of Layla, I shifted her slightly to the right of the grid’s center. I adjusted the light, whites, brightness, and contrast, just like I did with the flower. Then I experimented more with the curves, adding extra points and adjusting the colors until a rainbow-like glow formed around her shell and the surrounding space. Finally, I applied a vibrance adjustment layer, setting vibrance to 100% and saturation to 30%. I wanted to try something new. Making the image feel more alive, almost dreamlike. Overall, I’m happy with how both edits turned out.</p>
-  <script>
-    const heart = document.querySelector('.heart');
-    heart && heart.addEventListener('click', () => {
-      heart.style.transform = 'scale(1.2)';
-      setTimeout(() => heart.style.transform = '', 250);
-    });
-  </script>
 </body>
 </html>
