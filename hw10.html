@@ -1,31 +1,139 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Homework #10 (Coming Soon)</title>
+  <title>Homework #10 — Interactive Story</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Homework 10 placeholder">
+  <meta name="description" content="Homework 10 interactive story">
 
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
   <style>
-    body{ background:#DCD0FF; font-family: 'Times New Roman', serif; padding-left:60px; color:#2b2340; margin:0; min-height:100vh; box-sizing:border-box; }
-    ::-webkit-scrollbar { width:14px; }
-    ::-webkit-scrollbar-track { background:#efe8ff; border-left:1px solid rgba(0,0,0,0.03); }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #c4a8ff, #8c63ff); border-radius:12px; border:3px solid #efe8ff; }
-    scrollbar-width: thin; scrollbar-color: #8c63ff #efe8ff;
+    /* Page shell (matches other pages) */
+    :root {
+      --bg: #DCD0FF;
+      --accent: #6ea9ff;
+      --card-bg: #fff;
+      --muted: #444;
+    }
 
-    .scrollbar { position: fixed; top:0; left:0; width:60px; height:100%; background:#E0D0FF; display:flex; justify-content:center; align-items:flex-start; padding-top:20px; z-index:100; }
-    .scrollbar .heart { font-size:30px; cursor:pointer; color:#FF69B4; transition: transform 0.2s; user-select:none; }
+    html,body { height:100%; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      font-family: "Times New Roman", serif;
+      color: #2b2340;
+      min-height: 100vh;
+      padding-left: 60px;
+      box-sizing: border-box;
+    }
 
-    .nav { display:flex; gap:18px; align-items:center; background:#fff; padding:10px 16px; margin-left:60px; position:sticky; top:0; z-index:90; border-bottom:1px solid rgba(0,0,0,0.05); }
-    .nav a { color:#6ea9ff; text-decoration:none; }
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 14px; }
+    ::-webkit-scrollbar-track { background: #efe8ff; border-left: 1px solid rgba(0,0,0,0.03); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #c4a8ff, #8c63ff); border-radius: 12px; border: 3px solid #efe8ff; }
+    ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #af85ff, #6f3cff); }
+    scrollbar-width: thin;
+    scrollbar-color: #8c63ff #efe8ff;
 
-    h1 { font-family:'Lobster', cursive; margin-left:60px; }
+    /* Left fixed sidebar with heart */
+    .scrollbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 100%;
+      background: #E0D0FF;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 20px;
+      z-index: 100;
+    }
+    .scrollbar .heart {
+      font-size: 30px;
+      cursor: pointer;
+      color: #FF69B4;
+      transition: transform 0.2s;
+      user-select: none;
+    }
 
-    .polaroid { display:inline-block; background:#fff; padding:8px 8px 20px 8px; box-shadow:4px 6px 12px rgba(0,0,0,0.15); margin:8px; border-radius:4px; text-align:center; }
-    .caption{ font-size:0.95em; color:#333; margin-top:6px; }
+    /* Top navigation */
+    .nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      background: #fff;
+      padding: 10px 16px;
+      margin-left: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .nav a { color: var(--accent); text-decoration: none; font-size: 1em; }
 
-    @media (max-width:600px) { body { padding-left:0; } .scrollbar { display:none; } h1, .nav { margin-left:12px; } }
+    h1 { font-family: 'Lobster', cursive; margin-left: 60px; }
+
+    /* Story area */
+    .story-wrap {
+      margin-left: 60px;
+      padding: 18px 20px;
+      max-width: 900px;
+    }
+
+    .story-card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 5px 6px 14px rgba(0,0,0,0.12);
+      margin-bottom: 12px;
+    }
+    .scene-text {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #2b2340;
+    }
+
+    .choices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .choice-btn {
+      background: linear-gradient(180deg,#bfa8ff,#8c63ff);
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    .choice-btn:focus { outline: 3px solid rgba(138,99,255,0.2); }
+
+    .controls { margin-top: 12px; display:flex; gap:10px; align-items:center; }
+    .ctrl-btn {
+      background: white;
+      color: var(--accent);
+      border: 1px solid rgba(0,0,0,0.06);
+      padding: 8px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .meta {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    @media (max-width:600px) {
+      body { padding-left: 0; }
+      .scrollbar { display: none; }
+      h1, .nav, .story-wrap { margin-left: 12px; }
+    }
   </style>
 </head>
 <body>
@@ -37,13 +145,252 @@
     <a class="home-link" href="index.html">Home</a>
   </div>
 
-  <h1>Homework 10: Interactive Story (Coming Soon)</h1>
-  <div class="polaroid"><div class="caption">Thumbnail coming soon</div></div>
-  <p>This homework page is not published yet — check back later.</p>
+  <h1>Homework 10: Interactive Story</h1>
+
+  <div class="story-wrap">
+    <div class="story-card" id="story-card" aria-live="polite">
+      <div class="scene-text" id="scene-text">
+        <!-- Scene text injected by JS -->
+      </div>
+
+      <div class="choices" id="choices" role="list">
+        <!-- Choice buttons injected by JS -->
+      </div>
+
+      <div class="controls">
+        <button class="ctrl-btn" id="back-btn" aria-label="Go back one choice">Back</button>
+        <button class="ctrl-btn" id="restart-btn" aria-label="Restart story">Restart</button>
+        <div class="meta" id="meta">Scene <span id="scene-index">1</span> / <span id="scene-count">1</span></div>
+      </div>
+    </div>
+
+    <!-- Keep original <p> exactly as it was in the repository -->
+    <p>This homework page is not published yet — check back later.</p>
+  </div>
 
   <script>
+    // Heart click effect (keeps same behavior as other pages)
     const heart = document.querySelector('.heart');
-    heart && heart.addEventListener('click', () => { heart.style.transform = 'scale(1.2)'; setTimeout(() => heart.style.transform = '', 250); });
+    heart && heart.addEventListener('click', () => {
+      heart.style.transform = 'scale(1.2)';
+      setTimeout(() => heart.style.transform = '', 250);
+    });
+
+    /***** Interactive story data *****
+     Simple choose-your-own-adventure structure:
+     scenes: { id: { text: '', choices: [ { text, next } ] } }
+    ***********************************/
+    const scenes = {
+      start: {
+        text: `You wake up in a small, sunlit room with a cracked window and a wooden door. A ribbon of paper lies on the table: "Follow the light or listen to the music?"`,
+        choices: [
+          { text: 'Follow the light', next: 'lightPath' },
+          { text: 'Listen to the music', next: 'musicPath' }
+        ]
+      },
+
+      lightPath: {
+        text: `You step outside into a narrow path lined with lanterns. Ahead a fork appears: one path goes toward a river that glows, the other climbs toward a hill with a lonely tree.`,
+        choices: [
+          { text: 'Go to the glowing river', next: 'river' },
+          { text: 'Climb to the hill', next: 'hill' }
+        ]
+      },
+
+      musicPath: {
+        text: `You follow the melody through winding streets. A small musician bows and offers you a choice: a silver key or a small map.`,
+        choices: [
+          { text: 'Take the silver key', next: 'key' },
+          { text: 'Take the small map', next: 'map' }
+        ]
+      },
+
+      river: {
+        text: `At the riverbank the water reflects stars though it's daytime. A boat waits with two oars. You can row across or search the bank.`,
+        choices: [
+          { text: 'Row across', next: 'island' },
+          { text: 'Search the bank', next: 'bank' }
+        ]
+      },
+
+      hill: {
+        text: `At the hill a single tree bears paper blossoms. Tied to one branch is a note reading, "Courage is a lantern."`,
+        choices: [
+          { text: 'Pick a blossom', next: 'blossom' },
+          { text: 'Sit and rest', next: 'rest' }
+        ]
+      },
+
+      key: {
+        text: `The silver key is warm in your hand. The musician whispers, "It opens what was closed by doubt." Nearby you see a locked chest and an old gate.`,
+        choices: [
+          { text: 'Open the chest', next: 'chest' },
+          { text: 'Try the gate', next: 'gate' }
+        ]
+      },
+
+      map: {
+        text: `The map shows an X at the center of the town square. You're given a choice to follow the map now or keep the musician company.`,
+        choices: [
+          { text: 'Follow the map', next: 'square' },
+          { text: 'Stay with the musician', next: 'songEnd' }
+        ]
+      },
+
+      island: {
+        text: `You arrive at a tiny island. In the center sits a glowing stone. When you touch it, a memory surfaces — of someone who once believed in you.`,
+        choices: [
+          { text: 'Return home with the memory', next: 'homeEnd' },
+          { text: 'Leave the stone and explore', next: 'explore' }
+        ]
+      },
+
+      bank: {
+        text: `Searching the bank you find a small bottle with a message: "To continue is to choose."`,
+        choices: [
+          { text: 'Break the bottle', next: 'shard' },
+          { text: 'Leave it be', next: 'leave' }
+        ]
+      },
+
+      blossom: {
+        text: `You pick a blossom and it turns into a candle. Lighting it fills you with quiet confidence.`,
+        choices: [
+          { text: 'Carry it down the hill', next: 'carry' },
+          { text: 'Blow it out and keep the flame inside', next: 'inner' }
+        ]
+      },
+
+      rest: {
+        text: `While resting, clouds pass and reveal a distant skyline. You feel ready to decide anew.`,
+        choices: [
+          { text: 'Head to the river', next: 'river' },
+          { text: 'Go to the town', next: 'square' }
+        ]
+      },
+
+      chest: {
+        text: `Inside the chest is a mirror. Looking into it you see a braver version of yourself. The reflection smiles.`,
+        choices: [
+          { text: 'Take the mirror', next: 'mirrorEnd' },
+          { text: 'Leave it closed', next: 'leaveChest' }
+        ]
+      },
+
+      gate: {
+        text: `The gate creaks open to a garden where voices of encouragement echo. You step in and the path grows brighter.`,
+        choices: [
+          { text: 'Walk deeper', next: 'gardenEnd' },
+          { text: 'Return', next: 'start' }
+        ]
+      },
+
+      square: {
+        text: `At the square the X marks a mural of hands reaching outward. People around you clap and share food. You feel connected.`,
+        choices: [
+          { text: 'Join the circle', next: 'circleEnd' },
+          { text: 'Leave quietly', next: 'homeEnd' }
+        ]
+      },
+
+      songEnd: {
+        text: `You stay, and the musician teaches you a short melody that warms the night. Sometimes comfort is the story's end.`,
+        choices: [
+          { text: 'Play the melody', next: 'musicEnd' },
+          { text: 'Thank them and go', next: 'homeEnd' }
+        ]
+      },
+
+      explore: { text: `Exploration leads to new paths. Your journey continues beyond this homework.`, choices: [ { text: 'Restart', next: 'start' } ] },
+      shard: { text: `The bottle shards reveal a tiny key. Fate smiles on small breaks.`, choices: [ { text: 'Use the key at the chest', next: 'chest' }, { text: 'Keep walking', next: 'homeEnd' } ] },
+      leave: { text: `You leave the bottle. Some choices are left untouched.`, choices: [ { text: 'Return home', next: 'homeEnd' } ] },
+      carry: { text: `With the candle you light a path for others. Your courage becomes theirs.`, choices: [ { text: 'Restart', next: 'start' } ] },
+      inner: { text: `You keep the flame inside — a quiet, steady warmth that guides you.`, choices: [ { text: 'Restart', next: 'start' } ] },
+      mirrorEnd: { text: `Holding the mirror you recognize your worth. The lesson lasts beyond the page.`, choices: [ { text: 'Restart', next: 'start' } ] },
+      leaveChest: { text: `Sometimes the unknown stays closed. You walk away, carrying curiosity.`, choices: [ { text: 'Restart', next: 'start' } ] },
+      gardenEnd: { text: `The garden becomes a place you return to when doubt visits. You leave lighter.`, choices: [ { text: 'Restart', next: 'start' } ] },
+      circleEnd: { text: `Joining the circle you find friendship. This ending is warm and shared.`, choices: [ { text: 'Restart', next: 'start' } ] },
+      musicEnd: { text: `You play the melody and it echoes into the night — small music, big comfort.`, choices: [ { text: 'Restart', next: 'start' } ] },
+      homeEnd: { text: `You return home changed in small, meaningful ways. The story folds like a letter kept close.`, choices: [ { text: 'Restart', next: 'start' } ] }
+    };
+
+    // History to allow "Back"
+    const historyStack = [];
+
+    // Track current scene id
+    let current = 'start';
+
+    // Scene navigation functions
+    function renderScene(id) {
+      const scene = scenes[id];
+      if (!scene) return;
+      const sceneTextEl = document.getElementById('scene-text');
+      const choicesEl = document.getElementById('choices');
+      sceneTextEl.textContent = scene.text;
+      // Clear old choices
+      choicesEl.innerHTML = '';
+      // Populate choices
+      scene.choices.forEach((choice, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.type = 'button';
+        btn.textContent = choice.text;
+        btn.setAttribute('data-next', choice.next);
+        btn.addEventListener('click', () => {
+          historyStack.push(id);
+          goTo(choice.next);
+        });
+        choicesEl.appendChild(btn);
+      });
+
+      // Update meta (simple scene count)
+      const sceneIndexEl = document.getElementById('scene-index');
+      const sceneCountEl = document.getElementById('scene-count');
+      // Count is number of unique keys for simplicity
+      sceneIndexEl.textContent = Object.keys(scenes).indexOf(id) + 1 || '?';
+      sceneCountEl.textContent = Object.keys(scenes).length;
+      current = id;
+      // Focus first choice for keyboard accessibility
+      const firstChoice = choicesEl.querySelector('.choice-btn');
+      firstChoice && firstChoice.focus();
+    }
+
+    function goTo(id) {
+      if (!scenes[id]) return;
+      renderScene(id);
+    }
+
+    // Back button behavior
+    document.getElementById('back-btn').addEventListener('click', () => {
+      if (historyStack.length === 0) return;
+      const prev = historyStack.pop();
+      renderScene(prev);
+    });
+
+    // Restart
+    document.getElementById('restart-btn').addEventListener('click', () => {
+      historyStack.length = 0;
+      renderScene('start');
+    });
+
+    // Keyboard navigation: number keys for choices 1..9
+    document.addEventListener('keydown', (e) => {
+      if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+      const choices = document.querySelectorAll('#choices .choice-btn');
+      if (!choices.length) return;
+      if (e.key >= '1' && e.key <= String(Math.min(9, choices.length))) {
+        const index = parseInt(e.key, 10) - 1;
+        choices[index].click();
+      } else if (e.key === 'Escape') {
+        // restart on Escape
+        document.getElementById('restart-btn').click();
+      } else if (e.key === 'Backspace') {
+        document.getElementById('back-btn').click();
+      }
+    });
+
+    // Initialize
+    renderScene('start');
   </script>
 </body>
 </html>
