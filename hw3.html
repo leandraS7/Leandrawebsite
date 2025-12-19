@@ -5,31 +5,68 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Homework 3">
+
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   <style>
+    body { margin:0; padding:0; background:#DCD0FF; font-family:"Times New Roman", serif; color:#2b2340; min-height:100vh; padding-left:60px; box-sizing:border-box; }
+    ::-webkit-scrollbar { width: 14px; }
+    ::-webkit-scrollbar-track { background: #efe8ff; border-left: 1px solid rgba(0,0,0,0.03); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #c4a8ff, #8c63ff); border-radius: 12px; border: 3px solid #efe8ff; }
+    scrollbar-width: thin; scrollbar-color: #8c63ff #efe8ff;
+
+    .scrollbar { position: fixed; top:0; left:0; width:60px; height:100%; background:#E0D0FF; display:flex; justify-content:center; align-items:flex-start; padding-top:20px; z-index:100; }
+    .scrollbar .heart { font-size:30px; cursor:pointer; color:#FF69B4; transition: transform 0.2s; user-select:none; }
+
+    .nav { display:flex; gap:18px; align-items:center; background:#fff; padding:10px 16px; margin-left:60px; position:sticky; top:0; z-index:90; border-bottom:1px solid rgba(0,0,0,0.05); }
+    .nav a { color:#6ea9ff; text-decoration:none; }
+
+    h1 { font-family:'Lobster', cursive; margin-left:60px; }
+
     .polaroid { display:inline-block; background:#fff; padding:8px 8px 20px 8px; box-shadow:4px 6px 12px rgba(0,0,0,0.15); margin:8px; border-radius:4px; text-align:center; }
     .polaroid img{ width:220px; height:auto; display:block; border-radius:2px; }
     .caption{ font-size:0.9em; color:#333; margin-top:6px; }
+
+    @media (max-width:600px) { body { padding-left:0; } .scrollbar { display:none; } h1, .nav { margin-left:12px; } }
   </style>
 </head>
 <body>
+  <div class="scrollbar"><div class="heart" title="Like">❤️</div></div>
+
+  <div class="nav">
+    <a class="home-link" href="homework.html">Homework</a>
+    <a class="home-link" href="readings.html">Readings</a>
+    <a class="home-link" href="index.html">Home</a>
+  </div>
+
   <h1>Homework 3: Depth of Field</h1>
 
   <!-- thumbnail -->
   <div class="polaroid"><a href="Cones.jpg"><img src="Cones.jpg" alt="Cones thumbnail"></a><div class="caption">Cones</div></div>
 
   <h3>Part 1</h3>
-  <img src="Cones.jpg" width="400px" alt="Cones">
-  <img src="Cones2.jpg" width="400px" alt="Cones2">
-  <img src="clear.jpg" width="400px" alt="Clear">
-  <img src="outblur.jpg" width="400px" alt="Outblur">
-  <img src="inblur.jpg" width="400px" alt="Inblur">
+  <div class="polaroid"><img src="Cones.jpg" width="400px" alt="Cones"><div class="caption">Cones</div></div>
+  <div class="polaroid"><img src="Cones2.jpg" width="400px" alt="Cones2"><div class="caption">Cones2</div></div>
+  <div class="polaroid"><img src="clear.jpg" width="400px" alt="Clear"><div class="caption">Clear</div></div>
+  <div class="polaroid"><img src="outblur.jpg" width="400px" alt="Outblur"><div class="caption">Outblur</div></div>
+  <div class="polaroid"><img src="inblur.jpg" width="400px" alt="Inblur"><div class="caption">Inblur</div></div>
 
+  <p>I decided to use the cones photo since it was one of the decent ones I took for this assignment, and they isnt anything interesting to capture on school. First I resized the image to 7x5(w x h), I centered the image where I liked and then started the blur process. First I selected the lasso tool and started selecting the part of depth I wanted blurred to create the effect we were assigned to do, then I duplicated the selection and tap on where the Gaussian blur is in the photoshop app on my iPad. I decided to set the blur on 5.7 after I was done testing it around, I think that is how the effect would look with a camera. Then I exported the image to Jepg on my device</p>
+
+  <p>as well i took some pictures at home of the depth of field, all done by the camare and the size stayed the same. i put the objects in the center and aligment i wanted which are the moon lamp and the oil, and then played around with the depth on f3.2 or 4 to 5, till i got the results i wanted.</p>
+  
   <h3>Part 2</h3>
-  <img src="Garbage.jpg" width="400px" alt="Garbage">
-  <img src="Garbage2.jpg" width="400px" alt="Garbage2">
-  <img src="Book.jpg" width="400px" alt="Book">
-  <img src="Book2.jpg" width="400px" alt="Book2">
+  <div class="polaroid"><img src="Garbage.jpg" width="400px" alt="Garbage"><div class="caption">Garbage</div></div>
+  <div class="polaroid"><img src="Garbage2.jpg" width="400px" alt="Garbage2"><div class="caption">Garbage2</div></div>
+  <div class="polaroid"><img src="Book.jpg" width="400px" alt="Book"><div class="caption">Book</div></div>
+  <div class="polaroid"><img src="Book2.jpg" width="400px" alt="Book2"><div class="caption">Book2</div></div>
 
-  <a href="index.html">HOME</a>
+  <p>I particularly liked this image although the smell of the garbage was gross but it came out somewhat nicely and vintage like the old noise tvs. For this photo I as well resize it to 7 x 5 since I like the small looking size of the photo, and centered the photo where I liked. After I tap it on the 3 dots, selected after effects and then exposure. I lower it the exposure to - 2.36, still getting the like of dark garbage look but without the noise dots, then I just exported the image.</p>
+
+  <p>Same for this image, resized the image to 7 x 5, center it and when to the tree dots, after effects and then exposure, I lower it the exposure to - 2. 68, since selecting a specific part didnt work as I wanted and that wasnt the assignment. I used the exposure for the whole image as directed, then I exported the image and finished my assignment.</p>  
+
+  <script>
+    const heart = document.querySelector('.heart');
+    heart && heart.addEventListener('click', () => { heart.style.transform = 'scale(1.2)'; setTimeout(() => heart.style.transform = '', 250); });
+  </script>
 </body>
 </html>
